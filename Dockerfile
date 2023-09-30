@@ -4,6 +4,7 @@ FROM ubuntu:22.04
 # Set environment variables to avoid any prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PATH="/root/miniconda3/bin:$PATH"
+ENV  PATH = "/usr/local/bin:$PATH"
 ARG PATH="/root/miniconda3/bin:$PATH"
 
 # Update and install some basic packages
@@ -35,7 +36,7 @@ RUN wget \
 
 # Add conda to PATH
 ENV PATH /opt/conda/bin:$PATH
-ENV  PATH = "/usr/local/bin:$PATH"
+
 
 # # Install pip in the base conda environment
 RUN conda install -y pip
