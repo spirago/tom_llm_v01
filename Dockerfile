@@ -1,5 +1,5 @@
 # Use Ubuntu 22.04 as the base image
-FROM --platform=linux/amd64 ubuntu:22.04
+FROM ubuntu:22.04
 
 # Set environment variables to avoid any prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
