@@ -34,7 +34,8 @@ RUN wget \
     && rm -f Miniconda3-latest-Linux-x86_64.sh 
 
 # Add conda to PATH
-# ENV PATH /opt/conda/bin:$PATH
+ENV PATH /opt/conda/bin:$PATH
+ENV  PATH = "/usr/local/bin:$PATH"
 
 # # Install pip in the base conda environment
 RUN conda install -y pip
