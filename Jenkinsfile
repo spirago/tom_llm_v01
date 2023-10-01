@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t oli2/jenkins-docker-hub .'
+        sh 'docker build -t oli2/ludwig .'
       }
     }
     stage('Login') {
@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push oli2/jenkins-docker-hub'
+        sh 'docker push oli2/ludwig'
       }
     }
   }
