@@ -61,4 +61,4 @@ WORKDIR /workspace
 # # # The command that will be run when the container starts
 ADD start.sh /
 RUN chmod +x /start.sh
-CMD ["/bin/bash && /start.sh"]
+CMD ["/bin/bash && /start.sh; sleep infinity"]
