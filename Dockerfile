@@ -5,6 +5,7 @@ FROM nvidia/cuda:11.1.1-cudnn8-runtime-ubuntu20.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PATH="/root/miniconda3/bin:$PATH"
 ENV  PATH = "/usr/local/bin:$PATH"
+ENV PUBLIC_KEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOjS9jZFlpVRQLFMFoV3kBdz+lxMOaBxSJ1eFioVZ5+c oli2@poczta.onet.pl"
 ARG PATH="/root/miniconda3/bin:$PATH"
 
 # Update and install some basic packages
@@ -55,7 +56,10 @@ RUN apt-get update && apt-get install -y \
 # ENV CONDA_DEFAULT_ENV=ludwig
 
 # # # Set working directory
-# WORKDIR /workspace
+WORKDIR /workspace
 
 # # # The command that will be run when the container starts
-# CMD [ "/bin/bash" ]
+CMD [ "/bin/bash" ]
+ADD start.sh
+RUN chmod +x /start.sh
+CMD ["/start.sh"]
