@@ -56,9 +56,10 @@ RUN apt-get update && apt-get install -y \
 # ENV CONDA_DEFAULT_ENV=ludwig
 
 # # # Set working directory
-WORKDIR /workspace
+WORKDIR /
 
 # # # The command that will be run when the container starts
 ADD start.sh /
 RUN chmod +x /start.sh
-CMD ["/bin/bash && /start.sh; sleep infinity"]
+# CMD ["/start.sh; bash -c sleep infinity"]
+CMD ["bash -c 'apt update; /myscript.sh; sleep infinity'"]
