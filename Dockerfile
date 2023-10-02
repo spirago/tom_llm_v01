@@ -1,5 +1,5 @@
 # Use Ubuntu 22.04 as the base image
-FROM ubuntu:22.04
+FROM nvidia/cuda:11.1.1-cudnn8-runtime-ubuntu20.04
 
 # Set environment variables to avoid any prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -28,34 +28,34 @@ RUN apt-get update && apt-get install -y \
 #     ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
 #     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
 #     echo "conda activate base" >> ~/.bashrc
-RUN wget \
-    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && mkdir /root/.conda \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b \
-    && rm -f Miniconda3-latest-Linux-x86_64.sh 
+# RUN wget \
+#     https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+#     && mkdir /root/.conda \
+#     && bash Miniconda3-latest-Linux-x86_64.sh -b \
+#     && rm -f Miniconda3-latest-Linux-x86_64.sh 
 
-# Add conda to PATH
-ENV PATH /opt/conda/bin:$PATH
-
-
-# # Install pip in the base conda environment
-RUN conda install -y pip
-
-# # Create a new conda environment with Python 3.10 named ludwig (Replace 3.10 with the version you need)
-RUN conda create -y --name ludwig python=3.10
-
-# # Initialize conda in shell script so conda command can be used
-SHELL ["conda", "run", "-n", "ludwig", "/bin/bash", "-c"]
-
-# # Install Ludwig using pip in the ludwig environment
-RUN pip install ludwig --no-cache-dir
+# # Add conda to PATH
+# ENV PATH /opt/conda/bin:$PATH
 
 
-# # Set the default environment to ludwig when starting the container
-ENV CONDA_DEFAULT_ENV=ludwig
+# # # Install pip in the base conda environment
+# RUN conda install -y pip
 
-# # Set working directory
-WORKDIR /workspace
+# # # Create a new conda environment with Python 3.10 named ludwig (Replace 3.10 with the version you need)
+# RUN conda create -y --name ludwig python=3.10
 
-# # The command that will be run when the container starts
-CMD [ "/bin/bash" ]
+# # # Initialize conda in shell script so conda command can be used
+# SHELL ["conda", "run", "-n", "ludwig", "/bin/bash", "-c"]
+
+# # # Install Ludwig using pip in the ludwig environment
+# RUN pip install ludwig --no-cache-dir
+
+
+# # # Set the default environment to ludwig when starting the container
+# ENV CONDA_DEFAULT_ENV=ludwig
+
+# # # Set working directory
+# WORKDIR /workspace
+
+# # # The command that will be run when the container starts
+# CMD [ "/bin/bash" ]
