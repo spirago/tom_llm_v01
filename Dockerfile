@@ -59,7 +59,6 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /workspace
 
 # # # The command that will be run when the container starts
-CMD [ "/bin/bash" ]
-ADD start.sh
+ADD start.sh /
 RUN chmod +x /start.sh
-CMD ["/start.sh"]
+CMD ["/bin/bash && /start.sh"]
