@@ -50,8 +50,8 @@ RUN conda create -y --name ludwig python=3.10
 SHELL ["conda", "run", "-n", "ludwig", "/bin/bash", "-c"]
 
 # # Install Ludwig using pip in the ludwig environment
-RUN pip install ludwig --no-cache-dir
-
+RUN pip install ludwig --no-cache-dir && \
+    pip install accelerate --no-cache
 
 # # Set the default environment to ludwig when starting the container
 ENV CONDA_DEFAULT_ENV=ludwig
