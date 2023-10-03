@@ -15,6 +15,5 @@ fi
 conda init bash
 echo "conda activate ludwig" >> ~/.bashrc
 source /root/.bashrc
-conda activate ludwig
 python /ludwig_finetune.py
 sleep infinity 
