@@ -13,6 +13,7 @@ then
     service ssh start
 fi
 conda init bash
+echo "conda activate ludwig" >> ~/.bashrc
 source /root/.bashrc
 conda activate ludwig
 sleep infinity 
