@@ -12,7 +12,7 @@ import pandas as pd
 from ludwig.api import LudwigModel
 
 # Make sure the below global variables are defined during the env build
-os.environ["HUGGING_FACE_HUB_TOKEN"] = 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
+os.environ["HUGGING_FACE_HUB_TOKEN"] = "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"
 assert os.environ["HUGGING_FACE_HUB_TOKEN"]
 
 
