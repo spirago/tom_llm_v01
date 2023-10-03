@@ -59,6 +59,11 @@ ENV CONDA_DEFAULT_ENV=ludwig
 # # # Set working directory
 WORKDIR /
 
+# conda init bash
+# source ~/.bashrc
+# conda activate ludwig
+
+
 # # # The command that will be run when the container starts
 ADD start.sh /
 RUN chmod +x /start.sh
