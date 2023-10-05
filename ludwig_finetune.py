@@ -116,7 +116,7 @@ trainer:
 model = LudwigModel(config=qlora_fine_tuning_config, logging_level=logging.INFO)
 results = model.train(dataset=df)
 # LudwigModel.upload_to_hf_hub("your_org/model_name", "path/to/model")
-model.upload_to_hf_hub("oli2/ludwig_finetuned", "/content/results/api_experiment_run_0")
+model.upload_to_hf_hub("oli2/ludwig_finetuned", "/results/api_experiment_run")
 
 
 # What's next once the model has been trained?
