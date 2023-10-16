@@ -66,5 +66,6 @@ WORKDIR /
 # # # The command that will be run when the container starts
 ADD start.sh /
 ADD ludwig_finetune.py /
+ADD ludwig_mistral.py /
 RUN chmod +x /start.sh
 CMD ["/start.sh"]
